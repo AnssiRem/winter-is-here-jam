@@ -8,12 +8,16 @@ namespace Player
     {
         private static Collider m_collider;
         private static Transform m_transform;
+        private static GameManager m_gm;
 
 
         public static void Initialize(Transform transform, Collider collider)
         {
             m_transform = transform;
             m_collider = collider;
+
+            GameObject managerObject = GameObject.Find("Game Manager Object");
+            m_gm = managerObject.GetComponent<GameManager>();
         }
 
 
@@ -38,12 +42,7 @@ namespace Player
 
                 if (Physics.Raycast(ray, out hit, 1f))
                 {
-                    //TODO: Interactions
-                    switch (hit.collider.name)
-                    {
-                        default:
-                            break;
-                    }
+                    m_gm.Interact(hit.collider.name);
                 }
             }
         }
