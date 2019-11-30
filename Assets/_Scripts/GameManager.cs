@@ -189,7 +189,7 @@ public class GameManager : MonoBehaviour
 
                 break;
             case "Door":
-                ShowText("...");
+                ShowText("LEFT");
                 Application.Quit();
 
                 break;
