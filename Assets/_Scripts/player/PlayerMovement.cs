@@ -17,6 +17,7 @@ namespace Player
         private static Vector3 m_rotationAxis;
         private static Vector3 m_rotationPoint;
         private static float m_rotatedAmount;
+        public static bool rolling { get => m_rolling; }
 
 
         public static void Initialize(Transform transform, Collider collider)
@@ -33,7 +34,7 @@ namespace Player
             Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"),
                 Input.GetAxisRaw("Vertical"));
 
-            if (m_rolling)
+            if (rolling)
             {
                 Roll();
             }
@@ -60,7 +61,7 @@ namespace Player
 
         public static void SetRoll(Vector2 moveInput)
         {
-            if (m_rolling)
+            if (rolling)
             {
                 return;
             }
@@ -130,8 +131,6 @@ namespace Player
                 m_collExtents.z = prevExtents.y;
                 return;
             }
-
-            Debug.DrawRay(m_rotationPoint, Vector3.forward, Color.red, 3f);
         }
     }
 }

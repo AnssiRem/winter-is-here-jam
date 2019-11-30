@@ -16,7 +16,7 @@ namespace Window
 
         private void Start()
         {
-            DynamicGI.synchronousMode = true;
+
         }
 
 
@@ -29,7 +29,7 @@ namespace Window
             m_light.color = newColor;
 
             m_lightTransform.Rotate(Vector3.up,
-                Time.deltaTime * m_rotateSpeed);
+                -Time.deltaTime * m_rotateSpeed);
 
             //Intensity
             newColor *= 2f;

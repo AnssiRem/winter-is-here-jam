@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    private Vector3 m_lerpPos;
     private Vector3 m_curPos;
-    private Vector3 m_targetPos;
 
     [SerializeField] private float m_lerpSpeed = 0.1f;
     [SerializeField] private Transform m_target;
@@ -14,7 +12,7 @@ public class CameraFollow : MonoBehaviour
 
     void Start()
     {
-        m_lerpPos = m_curPos = m_targetPos = m_target.position;
+        m_curPos = m_target.position;
     }
 
 

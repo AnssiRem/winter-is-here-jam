@@ -9,12 +9,14 @@ namespace Player
         private void Start()
         {
             PlayerMovement.Initialize(transform, GetComponent<Collider>());
+            PlayerInteract.Initialize(transform, GetComponent<Collider>());
         }
 
 
         private void Update()
         {
             PlayerMovement.ManageInput();
+            PlayerInteract.ManageInput();
         }
     }
 }
