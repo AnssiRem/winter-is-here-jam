@@ -1,27 +1,21 @@
 fileFormatVersion: 2
-guid: 48497f9f7c06f644ab522d0440354be0
+guid: 0dc68881e33ea0340adf9c6f99a47fe9
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: Camera
     100002: Light
-    100004: mesh_id32
+    100004: Room
     100006: //RootNode
-    100008: root
     400000: Camera
     400002: Light
-    400004: mesh_id32
+    400004: Room
     400006: //RootNode
-    400008: root
     2000000: Camera
-    2100000: 61
-    2100002: No Name
-    2300000: mesh_id32
-    2300002: //RootNode
-    3300000: mesh_id32
-    3300002: //RootNode
-    4300000: mesh_id32
-    4300002: player_mesh
+    2100000: No Name
+    2300000: Room
+    3300000: Room
+    4300000: Room
     10800000: Light
   externalObjects: {}
   materials:
