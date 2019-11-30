@@ -6,7 +6,7 @@ namespace Window
 {
     public class Window : MonoBehaviour
     {
-        private float m_timeMulti = 0.1f;
+        private float m_timeMulti = 0.01f;
         private float m_rotateSpeed = 0.5f;
 
         [SerializeField] private Transform m_lightTransform;
@@ -31,8 +31,7 @@ namespace Window
             m_lightTransform.Rotate(Vector3.up,
                 -Time.deltaTime * m_rotateSpeed);
 
-            //Intensity
-            newColor *= 2f;
+            newColor *= 5;
             m_glass.SetColor("_EmissionColor", newColor);
         }
     }
