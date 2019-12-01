@@ -53,6 +53,8 @@ namespace Player
             {
                 m_rolling = false;
                 rotateAmount -= m_rotatedAmount - 90;
+
+                GameObject.Find("Player").GetComponent<Player>().PlayPunch();
             }
             m_transform.RotateAround(m_rotationPoint, m_rotationAxis,
                 rotateAmount);

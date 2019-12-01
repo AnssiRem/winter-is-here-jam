@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     private bool m_phoned;
     private bool m_knocked;
 
+    [Header("References: ")]
     [SerializeField] private float m_fadeSpeed = 2f;
     [SerializeField] private Text m_text;
     [SerializeField] private PostProcessVolume m_postProcess;
@@ -31,6 +32,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject m_sanityMeter;
     [SerializeField] private Phone m_phone;
     [SerializeField] private Door m_door;
+
+    [Header("Audio: ")]
+    [SerializeField] private AudioSource m_whiteNoise;
+    [SerializeField] private AudioSource m_music;
 
 
     private void Start()
@@ -100,29 +105,32 @@ public class GameManager : MonoBehaviour
         float total = m_hunger + m_sanity + m_sleep;
         m_fdUpness = 1 - (total / 3);
 
+        m_whiteNoise.volume = m_fdUpness;
+        m_music.volume = 1 - m_fdUpness;
+
         m_bloom.intensity.value = m_initBloom * (1 + m_fdUpness);
         m_grain.intensity.value = m_initGrain * (1 + m_fdUpness * 10);
         m_vignette.intensity.value = m_initVignette * (1 + m_fdUpness * 10);
 
-        if(m_time >= 180 && !m_phoned)
+        if (m_time >= 180 && !m_phoned)
         {
             m_phoned = true;
             m_phone.SwitchOn();
         }
-        if(m_time >= 360 && !m_knocked)
+        if (m_time >= 360 && !m_knocked)
         {
             m_knocked = true;
             m_door.SwitchOn();
         }
 
-        if(m_phone.isOn || m_door.isOn)
+        if (m_phone.isOn || m_door.isOn)
         {
             m_sanity -= Time.deltaTime * 0.02f;
             m_hunger -= Time.deltaTime * 0.02f;
             m_sleep -= Time.deltaTime * 0.02f;
         }
 
-        if(m_fdUpness >= 1)
+        if (m_fdUpness >= 1)
         {
             Application.Quit();
         }

@@ -11,5 +11,6 @@ public class Door : MonoBehaviour
     public void SwitchOn()
     {
         m_isOn = true;
+        GetComponent<AudioSource>().enabled = true;
     }
 }
