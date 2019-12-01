@@ -20,7 +20,8 @@ public class GameManager : MonoBehaviour
     private float m_initGrain;
     private float m_initVignette;
 
-    private bool m_phoned;
+    private bool m_phoned1;
+    private bool m_phoned2;
     private bool m_knocked;
 
     [Header("References: ")]
@@ -112,9 +113,14 @@ public class GameManager : MonoBehaviour
         m_grain.intensity.value = m_initGrain * (1 + m_fdUpness * 10);
         m_vignette.intensity.value = m_initVignette * (1 + m_fdUpness * 10);
 
-        if (m_time >= 180 && !m_phoned)
+        if (m_time >= 180 && !m_phoned1)
         {
-            m_phoned = true;
+            m_phoned1 = true;
+            m_phone.SwitchOn();
+        }
+        if(m_time >= 240 && m_phoned1 && !m_phoned2)
+        {
+            m_phoned2 = true;
             m_phone.SwitchOn();
         }
         if (m_time >= 360 && !m_knocked)

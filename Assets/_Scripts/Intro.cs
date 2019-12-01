@@ -29,7 +29,7 @@ public class Intro : MonoBehaviour
         else if(time >= step3)
         {
             m_text.SetActive(false);
-            SceneManager.LoadSceneAsync(1);
+            SceneManager.LoadScene(1);
         }
     }
 }
